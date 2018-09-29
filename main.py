@@ -1,16 +1,17 @@
 # Work with Python 3.6
 import discord
 import asyncio
+import os
 from random import choice
 from time import sleep
 
 TOKEN = 'NDk1NDg1MDg1ODk0NzA1MTUy.DpCwNQ.N1oel94g8kP_Cv_i5PFRO3vEOH4'
 
-try:
-    with open('mensagems.txt', encoding='utf-8') as f:
-        msg_dicas = [l for l in f]
-except Exception:
-    msg_dicas = ['calado feto']
+this = os.path.dirname(__file__)
+path_to_messages = os.path.join(this, 'mensagens.txt')
+
+with open(path_to_messages, encoding='utf-8') as f:
+    msg_dicas = [l for l in f]
 
 print(msg_dicas)
 
