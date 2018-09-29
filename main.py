@@ -8,6 +8,7 @@ from time import sleep
 TOKEN = 'NDk1NDg1MDg1ODk0NzA1MTUy.DpCwNQ.N1oel94g8kP_Cv_i5PFRO3vEOH4'
 
 this = os.path.dirname(__file__)
+print(this)
 path_to_messages = os.path.join(this, 'mensagens.txt')
 
 with open(path_to_messages, encoding='utf-8') as f:
