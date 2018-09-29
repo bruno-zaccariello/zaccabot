@@ -5,7 +5,7 @@ import os
 from random import choice
 from time import sleep
 
-TOKEN = 'NDk1NDg1MDg1ODk0NzA1MTUy.DpCwNQ.N1oel94g8kP_Cv_i5PFRO3vEOH4'
+TOKEN = os.getenv('token')
 
 this = os.path.dirname(__file__)
 print(this)
