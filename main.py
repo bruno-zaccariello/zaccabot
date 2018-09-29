@@ -6,8 +6,11 @@ from time import sleep
 
 TOKEN = 'NDk1NDg1MDg1ODk0NzA1MTUy.DpCwNQ.N1oel94g8kP_Cv_i5PFRO3vEOH4'
 
-with open('mensagems.txt', encoding='utf-8') as f:
-    msg_dicas = [l for l in f]
+try:
+    with open('mensagems.txt', encoding='utf-8') as f:
+        msg_dicas = [l for l in f]
+except Exception:
+    msg_dicas = ['calado feto']
 
 print(msg_dicas)
 
@@ -31,6 +34,10 @@ async def on_message(message):
         msg = f'Bate punheta pra anime'
         await bot.send_message(message.channel, msg)
 
+    if message.content.startswith('::dica'):
+        msg = choice(msg_dicas)
+        await bot.send_message(message.channel, msg)
+
     if message.content.startswith('mini'):
         msg = f'Curte uma encruzilhada gay'
         await bot.send_message(message.channel, msg)
@@ -47,7 +54,7 @@ async def dicas():
     channel = bot.get_channel('495432153203736576')
     while not bot.is_closed:
         await bot.send_message(channel, choice(msg_dicas))
-        await asyncio.sleep(600)
+        await asyncio.sleep(60*30)
 
 bot.loop.create_task(dicas())
 bot.run(TOKEN)
