@@ -56,7 +56,7 @@ async def dicas():
     channel = bot.get_channel('495432153203736576')
     while not bot.is_closed:
         await bot.send_message(channel, choice(msg_dicas))
-        await asyncio.sleep(60*30)
+        await asyncio.sleep(60*60*2)
 
 bot.loop.create_task(dicas())
 bot.run(TOKEN)
