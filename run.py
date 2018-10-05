@@ -39,20 +39,22 @@ async def on_message(message):
         await bot.send_message(message.channel, msg)
 
     if message.content.startswith('!openvote'):
+      print('Open Vote')
       async def ERROR(msg):
         await bot.send_message(message.channel, msg)
 
       try:
         setup = message.content.split(' ')
-        goal = setup[1]
+        goal = int(setup[1])
         print(goal)
-        if int(goal) == 1:
+        if goal == 1:
           await ERROR('Você não pode iniciar uma votação com meta de 1 voto.')
         
         objective = " ".join(word for word in setup[2:])
         print(objective)
         
-        votacao = Vote(goal, objective, client, message.author)
+        votacao = Vote(goal, objective, bot, message.author)
+        print('Votacao Iniciando...')
         await votacao.voting()
         votacao = None
       except Exception:
