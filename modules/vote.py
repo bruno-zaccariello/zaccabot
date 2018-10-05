@@ -33,8 +33,7 @@ class Vote():
           return True
         self.voters.append(vote.author)
         msg = f"""
-        {vote.author} Votou !
-        Votos: {self.total}/{self.goal}
+        {vote.author} Votou !\n{self.objective} - {self.total}/{self.goal}
 
         digite !up para votar
         """
