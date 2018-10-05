@@ -49,12 +49,12 @@ async def on_message(message):
         print(goal)
         if goal == 1:
           await ERROR('Você não pode iniciar uma votação com meta de 1 voto.')
+          return None
         
         objective = " ".join(word for word in setup[2:])
         print(objective)
         
         votacao = Vote(goal, objective, bot, message.author, message.channel)
-        print('Votacao Iniciando...')
         await votacao.voting()
         votacao = None
       except Exception:
