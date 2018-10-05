@@ -26,10 +26,6 @@ class Vote():
         return False
       if vote.author not in self.voters:
         self.total += 1
-        if self.total == self.goal:
-          msg = f"\
-          Votação encerrada !\n{self.objective} - {self.total}/{self.goal}"
-          return True
         self.voters.append(vote.author)
         msg = f"""
         {vote.author} Votou !\n{self.objective} - {self.total}/{self.goal}
@@ -37,3 +33,7 @@ class Vote():
         digite !up para votar
         """
         await self.client.send_message(vote.channel, msg)
+      if self.total >= self.goal:
+        msg = f"\
+        Votação encerrada !\n{self.objective} - {self.total}/{self.goal}"
+        return True
