@@ -16,7 +16,7 @@ class Vote():
   async def voting(self):
     print('Iniciou')
     def check(msg):
-      return msg.content.startswith('!up') and msg.channel == self.channel
+      return msg.content.startswith('!up')
     
     await self.client.send_message(self.channel, f'Votação {self.objective} iniciada. {self.total}/{self.goal}')
     await self.client.send_message(self.channel, 'Utilize !up para votar')
