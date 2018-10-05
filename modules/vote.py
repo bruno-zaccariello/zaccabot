@@ -22,8 +22,10 @@ class Vote():
     await self.client.send_message(self.channel, 'Utilize !up para votar')
     while True:
       print('Aguardando mensagem')
-      vote = await self.client.wait_for_message(timeout=60*5,check=check)
+      vote = await self.client.wait_for_message(timeout=60,check=check)
       if not vote:
+        msg = f"\
+        Votação encerrada !\n{self.objective} - {self.total}/{self.goal}"
         return False
       if vote.author not in self.voters:
         self.total += 1
