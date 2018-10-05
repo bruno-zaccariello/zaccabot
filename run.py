@@ -45,10 +45,12 @@ async def on_message(message):
       try:
         setup = message.content.split(' ')
         goal = setup[1]
+        print(goal)
         if int(goal) == 1:
           await ERROR('Você não pode iniciar uma votação com meta de 1 voto.')
         
         objective = " ".join(word for word in setup[2:])
+        print(objective)
         
         votacao = Vote(goal, objective, client, message.author)
         await votacao.voting()
