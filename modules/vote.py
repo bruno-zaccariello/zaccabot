@@ -37,4 +37,5 @@ class Vote():
       if self.total >= self.goal:
         msg = f"\
         Votação encerrada !\n{self.objective} - {self.total}/{self.goal}"
+        await self.client.send_message(vote.channel, msg)
         return True
