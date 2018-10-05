@@ -27,6 +27,7 @@ class Vote():
       if vote.author not in self.voters:
         self.total += 1
         self.voters.append(vote.author)
+        print(self.total, self.goal)
         msg = f"""
         {vote.author} Votou !\n{self.objective} - {self.total}/{self.goal}
 
