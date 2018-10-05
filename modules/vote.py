@@ -13,12 +13,13 @@ class Vote():
     self.voters = []
     self.total = 1
 
-  async def voting(goal: int, objective: str, client, author):
-    
+  async def voting(self):
+    print('Iniciou')
     def check(msg):
       return msg.content.startswith('!up')
     
     while True:
+      print('Aguardando mensagem')
       vote = await client.wait_for_message(timeout=60*5,check=check)
       if not vote:
         self.status = False
