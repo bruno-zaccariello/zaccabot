@@ -53,7 +53,7 @@ async def on_message(message):
         objective = " ".join(word for word in setup[2:])
         print(objective)
         
-        votacao = Vote(goal, objective, bot, message.author)
+        votacao = Vote(goal, objective, bot, message.author, message.channel)
         print('Votacao Iniciando...')
         await votacao.voting()
         votacao = None
